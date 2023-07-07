@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 public record Content(
         Integer id,
         String title,
-        String description,
+        String desc,
         Status status,
         Type contentType,
         LocalDateTime dateCreated,
