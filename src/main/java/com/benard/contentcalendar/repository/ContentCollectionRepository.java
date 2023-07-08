@@ -47,4 +47,8 @@ public class ContentCollectionRepository {
                 "");
         contentList.add(c);
     }
+
+    public boolean existById(Integer id) {
+        return contentList.stream().filter(c -> c.id().equals(id)).count() == 1;
+    }
 }
