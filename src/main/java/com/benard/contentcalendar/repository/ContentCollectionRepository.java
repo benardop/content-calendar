@@ -30,8 +30,8 @@ public class ContentCollectionRepository {
         return contentList.stream().filter(c -> c.id().equals(id)).findFirst();
     }
 
-    @PostMapping("")
-    public void save(@RequestBody Content content) {
+    public void save(Content content) {
+        contentList.removeIf(c -> c.id().equals(content.id()));
         contentList.add(content);
     }
 
@@ -50,5 +50,9 @@ public class ContentCollectionRepository {
 
     public boolean existById(Integer id) {
         return contentList.stream().filter(c -> c.id().equals(id)).count() == 1;
+    }
+
+    public void delete(Integer id) {
+        contentList.removeIf(c -> c.id().equals(id));
     }
 }
