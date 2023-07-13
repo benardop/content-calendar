@@ -37,15 +37,7 @@ public class ContentCollectionRepository {
 
     @PostConstruct
     private void init(){
-        Content c = new Content(1,
-                "My First Blog Post",
-                "My Fist Blog Post",
-                Status.IDEA,
-                Type.ARTICLE,
-                LocalDateTime.now(),
-                null,
-                "");
-        contentList.add(c);
+        // contentList.add(c);
     }
 
     public boolean existById(Integer id) {

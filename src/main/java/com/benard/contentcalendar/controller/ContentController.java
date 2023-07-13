@@ -2,6 +2,7 @@ package com.benard.contentcalendar.controller;
 
 import com.benard.contentcalendar.model.Content;
 import com.benard.contentcalendar.repository.ContentCollectionRepository;
+import com.benard.contentcalendar.repository.ContentRepository;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +16,10 @@ import java.util.Optional;
 @CrossOrigin
 public class ContentController {
 
-    private final ContentCollectionRepository repository;
+    private final ContentRepository repository;
 
 
-    public ContentController(ContentCollectionRepository repository) {
+    public ContentController(ContentRepository repository) {
         this.repository = repository;
     }
 
@@ -41,7 +42,7 @@ public class ContentController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
     public void update(@RequestBody Content content, @PathVariable Integer id) {
-        if (!repository.existById(id)) {
+        if(!repository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found");
         }
         repository.save(content);
@@ -50,6 +51,6 @@ public class ContentController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 }
