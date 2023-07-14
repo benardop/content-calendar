@@ -21,14 +21,15 @@ public class Application {
 	@Bean
 	CommandLineRunner commandLineRunner(ContentRepository repository) {
 		return args -> {
-			Content c = new Content(1,
+			Content content = new Content(null,
 					"Hello, I wrote something new in ChtGPT",
-					"My Fist Blog Post",
+					"All about chatGPT",
 					Status.IDEA,
-					Type.ARTICLE,
+					Type.VIDEO,
 					LocalDateTime.now(),
 					null,
 					"");
+			repository.save(content);
 		};
 	}
 
