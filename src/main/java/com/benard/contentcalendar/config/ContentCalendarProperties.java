@@ -1,4 +1,8 @@
 package com.benard.contentcalendar.config;
 
-public class ContentCalendarProperties {
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(value = "cc")
+public record ContentCalendarProperties(String welcomeMessage, String about) {
 }
+

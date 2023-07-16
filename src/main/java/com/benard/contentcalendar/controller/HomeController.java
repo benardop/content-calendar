@@ -1,16 +1,21 @@
 package com.benard.contentcalendar.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.benard.contentcalendar.config.ContentCalendarProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
-
 @RestController
 public class HomeController {
+
+    private final ContentCalendarProperties properties;
+
+    public HomeController(ContentCalendarProperties properties) {
+        this.properties = properties;
+    }
+
     @GetMapping("/")
-    public String home(){
-        return null;
+    public ContentCalendarProperties home(){
+        return properties;
     }
 
 }
