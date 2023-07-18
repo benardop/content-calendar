@@ -5,6 +5,7 @@ import com.benard.contentcalendar.repository.ContentRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
 import java.lang.reflect.Type;
@@ -12,7 +13,7 @@ import java.util.List;
 
 // @Profile("!dev")
 
-// @Component
+@Component
 public class DataLoader implements CommandLineRunner {
     private final ContentRepository repository;
     private final ObjectMapper objectMapper;
